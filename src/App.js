@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
 
@@ -7,7 +7,7 @@ function App() {
   let x=false 
   return (
     <div className="App">
-        <Header / >
+        <Header title="Namste" / >
         <h1>Jai Bharat</h1>
         <h2>Namste {name} </h2>
         <h3>X is:{x ? "Yes": "No" } </h3>
