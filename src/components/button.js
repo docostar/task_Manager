@@ -1,19 +1,27 @@
 
 import PropTypes from 'prop-types';
 export const Button = (props) => {
+
+
+
     return (
         <div>
-            <button className='btn btn-primary my-2'>{props.btntext}</button>
+            <button className='btn btn-primary my-2' onClick={props.onclick}>{props.btntext}</button>
         </div>
     )
 }
 
 
-Button.defaultProps =
-{
-    btntext: "Hello"
+const onclickHeader = (e) => {
+    console.log("Button clicked on button.js" + e)
 }
 
-Button.protoTypes = {
+Button.defaultProps =
+{
+    btntext: "Hello",
+    onclick: onclickHeader
+}
+
+Button.propTypes = {
     btntext: PropTypes.string
 }
