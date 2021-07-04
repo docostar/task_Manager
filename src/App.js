@@ -34,13 +34,18 @@ function App() {
     },
   ]);
 
+  const deleteTask = (id) => {
+    console.log("Delete", id);
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <div className="App">
       <Header title="Namste" />
       <h1>Jai Bharat</h1>
       <h2>Namste {name} </h2>
       <h3>X is:{x ? "Yes" : "No"} </h3>
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   );
 }

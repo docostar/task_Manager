@@ -24,10 +24,11 @@ import { Task } from "./Task";
 
 export const Tasks = (props) => {
   return (
-    <>
+    <div className="Container mx-auto border-3 rounded-pill bg-primary ">
+      <h1>Task List</h1>
       {props.tasks.map((task) => (
-        <Task key={task.id} task={task} />
+        <Task key={task.id} task={task} onDelete={props.onDelete} />
       ))}
-    </>
+    </div>
   );
 };
