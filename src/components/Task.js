@@ -1,8 +1,11 @@
 import { FaTimes } from "react-icons/fa";
 
-export const Task = ({ task, onDelete }) => {
+export const Task = ({ task, onDelete, onToggle }) => {
   return (
-    <div className="card bg-dark  text-white border border-secondary border-2">
+    <div
+      onDoubleClick={() => onToggle(task.id)}
+      className="card bg-dark  text-white border border-secondary border-2"
+    >
       <div className="card-body">
         <h3 className="card-title">
           {task.text}
@@ -12,6 +15,7 @@ export const Task = ({ task, onDelete }) => {
           />
         </h3>
         <p className="card-text">{task.day}</p>
+        <p className="card-text">{task.reminder ? "Yes" : "No"}</p>
       </div>
     </div>
   );

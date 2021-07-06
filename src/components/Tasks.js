@@ -26,8 +26,14 @@ export const Tasks = (props) => {
   return (
     <div className="Container mx-auto border-3 rounded-pill bg-primary ">
       <h1>Task List</h1>
+
       {props.tasks.map((task) => (
-        <Task key={task.id} task={task} onDelete={props.onDelete} />
+        <Task
+          key={task.id}
+          task={task}
+          onDelete={props.onDelete}
+          onToggle={props.onToggle}
+        />
       ))}
     </div>
   );
