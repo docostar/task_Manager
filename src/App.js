@@ -8,6 +8,7 @@ import { useState } from "react";
 function App() {
   const name = "India";
   let x = false;
+  const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -38,7 +39,7 @@ function App() {
   const addTask = (task) => {
     console.log(task);
     const id = Math.floor(Math.random() * 10000) + 1;
-    console.log(id);
+    // console.log(id);
     const newTask = { id, ...task };
     setTasks([...tasks, newTask]);
   };
@@ -49,7 +50,7 @@ function App() {
   };
 
   const toggleReminder = (id) => {
-    console.log("Toggle", id);
+    // console.log("Toggle", id);
     setTasks(
       tasks.map((task) =>
         task.id === id ? { ...task, reminder: !task.reminder } : task
@@ -59,11 +60,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="Namste" />
-      <h1>Jai Bharat</h1>
+      <Header
+        title="Namste"
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
+      />
+      {/* <h1>Jai Bharat</h1>
       <h2>Namste {name} </h2>
-      <h3>X is:{x ? "Yes" : "No"} </h3>
-      <AddTask onAdd={addTask} />
+      <h3>X is:{x ? "Yes" : "No"} </h3> */}
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (

@@ -4,29 +4,30 @@ import { Button } from './button'
 
 const Header = (props) => {
 
-    const onclickHeader= ()=>{
-        console.log("onclick on Header.js")
-    }
 
     return (
         <header>
             <h1>Task Tracker {props.title}</h1>
-            <Button btntext="Add Task"  onclick={onclickHeader} />
-            <Button btntext="Delete Task" />
-            <Button/>
+            <Button btntext={props.showAdd ? "Close" : "Add Task"}
+                onclick={props.onAdd}
+                color={props.showAdd ? "btn-danger" : "btn-primary"}
+            />
+            {/* <Button btntext="Delete Task" />
+            <Button /> */}
 
         </header>
     )
 }
 
 
-Header.defaultProps=
+Header.defaultProps =
 {
-    title: "Task Title"
+    title: "Task Title",
 }
 
-Header.propTypes={
+Header.propTypes = {
     title: PropTypes.string.isRequired,
+
 }
 
 

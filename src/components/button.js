@@ -6,8 +6,8 @@ export const Button = (props) => {
 
     return (
         <div>
-            <button className='btn btn-primary my-2' onClick={props.onclick}>{props.btntext}</button>
-        </div>
+            <button className={'btn ' + props.color + ' my-2'} onClick={props.onclick}>{props.btntext}</button>
+        </div >
     )
 }
 
@@ -19,9 +19,9 @@ const onclickHeader = (e) => {
 Button.defaultProps =
 {
     btntext: "Hello",
-    onclick: onclickHeader
+    onclick: onclickHeader,
+    color: 'btn-primary',
 }
-
 Button.propTypes = {
     btntext: PropTypes.string
 }
